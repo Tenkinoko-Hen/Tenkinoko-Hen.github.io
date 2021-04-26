@@ -325,15 +325,31 @@
                     var typed = new Typed("#subtitle", {
                         strings: [ 
                             
-                                "All is Well!",
+                                "All is Well!      ---《宝莱坞》",
                             
-                                "穿越百夜，仰望千空!",
+                                "穿越百夜，仰望千空 ---《石纪元》",
+                            
+                                "生而为人，我很无奈 ---《人间失格》",
+                            
+                                "能遇见你真是太好了 ---《天气之子》",
+                            
+                                "好的也要吃，坏的也要吃，这才称得上健全 ---《刃牙》",
+                            
+                                "It&#39;s one of them  ---《22/7》",
+                            
+                                "不要熄灭你的灵感和想象，不要成为&#34;模式&#34;的奴隶。 ---《别对映像研出手》",
+                            
+                                "一飞冲天啊！ 我！ ---《游戏王ZEXAL》",
+                            
+                                "只有不断的自我进化，才能触及梦想，不然一切都如镜花水月。",
+                            
+                                "“现在”永远来得及。",
                             
                         ],
                         startDelay: 300,
                         typeSpeed: 100,
                         loop: true,
-                        backSpeed: 50,
+                        backSpeed: 60,
                         showCursor: true
                     });
                 </script>
@@ -415,16 +431,12 @@
 <style>
     .aplayer .aplayer-lrc p {
         
-        display: none;
-        
         font-size: 12px;
         font-weight: 700;
         line-height: 16px !important;
     }
 
     .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
         
         font-size: 15px;
         color: #42b983;
@@ -447,7 +459,7 @@
         <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
                    server="netease"
                    type="playlist"
-                   id="34565219"
+                   id="444675767"
                    fixed='true'
                    autoplay='true'
                    theme='#42b983'
@@ -455,7 +467,7 @@
                    order='random'
                    preload='auto'
                    volume='0.7'
-                   list-folded='true'
+                   list-folded='false'
         >
         </meting-js>
     </div>
@@ -515,12 +527,16 @@
 
 
 
-    <a href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=2807987990&website=www.oicqzone.com"tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=2807987990&website=www.oicqzone.com"tooltipped" target="_blank" data-tooltip="QQ联系我: 2807987990" data-position="top" data-delay="50">
         <i class="fab fa-qq"></i>
     </a>
 
 
 
+
+    <a href="https://www.zhihu.com/people/qing-shi-hen" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/qing-shi-hen" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
 
 <!-- 
 
@@ -695,6 +711,21 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
+    <script type="text/javascript">
+        var OriginTitile=document.title,st;
+        document.addEventListener("visibilitychange",function(){
+            document.hidden?(document.title="ヽ(●-`Д´-)ノ你要玩捉迷藏嘛",clearTimeout(st)):(document.title="(Ő∀Ő3)ノ好哦！",st=setTimeout(function(){document.title=OriginTitile},3e3))
+        })
+    </script>
+
+    <script type="text/javascript">
+        //只在桌面版网页启用特效
+        var windowWidth = $(window).width();
+        if (windowWidth > 768) {
+            document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>');
+        }
+        </script>
+        
 </body>
 
 </html>
