@@ -601,28 +601,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-28
+                    2021-05-06
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-05
+                    2021-05-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.4k
+                    2.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    8 分
                 </div>
                 
 
@@ -655,7 +655,7 @@
 <p>​        </p>
 <h1 id="题目练习篇-例子"><a href="#题目练习篇-例子" class="headerlink" title="题目练习篇(例子)"></a>题目练习篇(例子)</h1><h2 id="一、加速幂"><a href="#一、加速幂" class="headerlink" title="一、加速幂"></a>一、加速幂</h2><p>由于加速幂是我学的最精的了，又在协会做过讲解，第一篇文章就来讲加速幂。<br>这里加速幂分为三个部分：基础加速幂，矩阵加速幂和数列加速幂。</p>
 <h3 id="基础加速幂"><a href="#基础加速幂" class="headerlink" title="基础加速幂"></a>基础加速幂</h3><p>首先来看一个2的19次幂的加速。</p>
-<p><img src="https://riyugo.com/o/210505/vp10oa.jpg"></p>
+<p><img src="http://ten.ranuxy.com/i/2021/05/06/gyha6n.png"></p>
 <p>这是一个不断给总幂数二分，底数平方的过程。不多说，上代码讲解。</p>
 <p>洛谷<strong>P1226 【模板】快速幂||取余运算</strong></p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Scanner<span class="token punctuation">;</span>
@@ -776,9 +776,7 @@
 <p>此问题为求数列的第几项，如求斐波那契数列的第1883项。</p>
 <p>可以从2的19次幂看出，无非是求2的n次幂这个等比数列的第19项，但是基础加速幂只能满足等比数列的求解，因此又有了其他数列的加速求解。</p>
 <p>这里的加速是通过矩阵实现的，要矩阵加速便需要得知单位矩阵和基础矩阵，下面是求这两个矩阵的方法。</p>
-<p>以斐波那契数列为例，由其数列的法则设出<br>$$<br>B = \left[<br>\matrix{<br>  f(n-1) &amp; f(n)\<br>}<br>\right]<br>$$<br>此处f(n)无先后关系，求得答案记得位置就行。</p>
-<p>再设出基础矩阵<br>$$<br>C = \left[<br>\matrix{<br>  a &amp; b\<br>  c &amp; d\<br>}<br>\right]<br>$$<br>$$<br>B<em>C = \left[<br>\matrix{<br>  a</em>f(n-1)+c<em>f(n)&amp;<br>  b</em>f(n-1)+d*f(n)\<br>}<br>\right]<br>$$</p>
-<p>若要得到下一个（包含下一项）矩阵,<br>$$<br>B_1 = \left[<br>\matrix{<br>  f(n) &amp; f(n+1)\<br>}<br>\right]<br>$$<br>将f(n+1)看成f(n)+f(n-1)，便得出a=0,c=1,b=1,d=1，即基础矩阵<br>$$<br>C=\left[<br>\matrix{<br>  0 &amp; 1\<br>  1 &amp; 1\<br>}<br>\right]<br>$$<br>以对应的2阶矩阵设出单位矩阵<br>$$<br>\left[<br>\matrix{<br>  1 &amp; 0\<br>  0 &amp; 1\<br>}<br>\right]<br>$$<br>至此，得出单位矩阵和基础矩阵，便可实现加速了。</p>
+<p>以斐波那契数列为</p>
 <p>上代码。</p>
 <p>洛谷<strong>P1962 斐波那契数列</strong></p>
 <pre class="line-numbers language-java"><code class="language-java">
@@ -1091,16 +1089,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/1011.html">
+                <a href="/posts/1012.html">
                     <div class="card-image">
                         
-                        <img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=4221826493,2563975994&fm=11&gp=0.jpg" class="responsive-img" alt="Idea-2021-1的破解方法">
+                        <img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1300928553,4007769300&fm=26&gp=0.jpg" class="responsive-img" alt="蓝桥杯JAVA C组第十二次省赛总结">
                         
-                        <span class="card-title">Idea-2021-1的破解方法</span>
+                        <span class="card-title">蓝桥杯JAVA C组第十二次省赛总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1110,30 +1109,27 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-28
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-06
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%99%E7%A8%8B/" class="post-category">
-                                    教程
+                            <a href="/categories/%E6%80%BB%E7%BB%93/" class="post-category">
+                                    总结
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%99%E7%A8%8B/">
-                        <span class="chip bg-color">教程</span>
-                    </a>
-                    
-                    <a href="/tags/Idea/">
-                        <span class="chip bg-color">Idea</span>
+                    <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/">
+                        <span class="chip bg-color">蓝桥杯</span>
                     </a>
                     
                 </div>
@@ -1147,12 +1143,12 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/1010.html">
+                <a href="/posts/1011.html">
                     <div class="card-image">
                         
-                        <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3674329576,1824406879&fm=26&gp=0.jpg" class="responsive-img" alt="Mysql的下载,安装,配置">
+                        <img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=4221826493,2563975994&fm=11&gp=0.jpg" class="responsive-img" alt="Idea-2021-1的破解方法">
                         
-                        <span class="card-title">Mysql的下载,安装,配置</span>
+                        <span class="card-title">Idea-2021-1的破解方法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1184,8 +1180,8 @@
                         <span class="chip bg-color">教程</span>
                     </a>
                     
-                    <a href="/tags/Mysql/">
-                        <span class="chip bg-color">Mysql</span>
+                    <a href="/tags/Idea/">
+                        <span class="chip bg-color">Idea</span>
                     </a>
                     
                 </div>
@@ -1342,7 +1338,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4.4k</span>&nbsp;字
+                class="white-color">4.2k</span>&nbsp;字
             
             
             
