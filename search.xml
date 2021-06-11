@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Spring5 入门——①</title>
+      <link href="posts/1013.html"/>
+      <url>posts/1013.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="Spring5-入门——①"><a href="#Spring5-入门——①" class="headerlink" title="Spring5 入门——①"></a>Spring5 入门——①</h1><blockquote><p>SSM的第一站，后端。。。很奇妙吧？</p></blockquote><h2 id="Spring-框架概述"><a href="#Spring-框架概述" class="headerlink" title="Spring 框架概述"></a>Spring 框架概述</h2><ol><li><strong>Spring</strong>是轻量级的开源的<strong>JAVAEE</strong>框架</li><li><strong>Spring</strong>可以解决企业应用开发的复杂性</li><li><strong>Spring</strong>有两个核心部分 AOP 和 IOC 容器<ul><li><strong>IOC</strong> ：控制反转，把创建对象交给Spring进行管理</li><li><strong>AOP</strong>：面向切面，不修改源代码进行功能增强</li></ul></li><li><strong>Spring</strong>特点<ol><li>方便解耦，简化开发</li><li>APP编程支持</li><li>方便程序测试</li><li>方便和其他框架进行整合</li><li>方便进行事务操作</li><li>降低API开发难度</li></ol></li><li><strong>Spring版本为5.x</strong></li></ol><h2 id="第一个Spring程序"><a href="#第一个Spring程序" class="headerlink" title="第一个Spring程序"></a>第一个Spring程序</h2><blockquote><p>第一个程序用的是JAVA项目</p><p>因为更好的上手 所以没用Maven项目</p><p>因此 可能会和Maven有点出入，但大体是一样的</p></blockquote><p><strong>1.下载Spring5</strong></p><ul><li><p>​    使用Spring的最新稳定版</p><p><img src="http://ten.ranuxy.com/i/2021/06/10/x8d77y.png"></p></li><li><p>​    下载地址</p><p><a href="https://repo.spring.io/release/org/springframework/spring/">https://repo.spring.io/release/org/springframework/spring/</a></p><p><img src="http://ten.ranuxy.com/i/2021/06/10/xd1wzv.jpg"></p><p>解压缩后：</p><p><img src="http://ten.ranuxy.com/i/2021/06/10/xdq1ks.png"></p></li></ul><p><strong>2.打开 idea 工具，创建普通 Java 工程</strong></p><p>​    <img src="http://ten.ranuxy.com/i/2021/06/10/xgrwgu.png"></p><p>​    <img src="http://ten.ranuxy.com/i/2021/06/10/xgrtk1.png"></p><p>​    <img src="http://ten.ranuxy.com/i/2021/06/10/xgruty.png"></p><p>​    <img src="http://ten.ranuxy.com/i/2021/06/10/xgs316.png">    </p><p><strong>3.导入 Spring 基本jar包</strong></p><blockquote><p>不是maven 没有直接在Pom.xml导入依赖</p><p>而是传统的导入jar包</p></blockquote><p><img src="http://ten.ranuxy.com/i/2021/06/10/xo735x.png"></p><blockquote><p>基础的Spring程序只需要上面四种jar包</p></blockquote><p><img src="http://ten.ranuxy.com/i/2021/06/10/xtow2n.png"></p><p><img src="http://ten.ranuxy.com/i/2021/06/10/xtozzt.png"></p><p><img src="http://ten.ranuxy.com/i/2021/06/10/xtp22i.png"></p><blockquote><p>除此之外 还有一个重要的jar包 <strong>日志包</strong></p></blockquote><p><img src="http://ten.ranuxy.com/i/2021/06/10/xuvb4c.png"></p><p><a href="%22http://commons.apache.org/proper/commons-logging/download_logging.cgi%22">下载地址</a></p><blockquote><p>然后在新建的java项目下新建个lib文件夹，用来存储jar包</p></blockquote><p><img src="http://ten.ranuxy.com/i/2021/06/11/dtc02d.png"></p><blockquote><p>注入JAR包</p></blockquote><p><img src="http://ten.ranuxy.com/i/2021/06/11/dtai9b.png"></p><p><img src="http://ten.ranuxy.com/i/2021/06/11/dtfnt7.png"></p><blockquote><p>至此，Spring的前置已经做完了</p></blockquote><p><strong>4.创建个普通类</strong></p><p><img src="http://ten.ranuxy.com/i/2021/06/11/dxgtg7.png"></p><p><strong>5.创建Spring配置文件，在配置文件配置创建的对象</strong></p><p><img src="http://ten.ranuxy.com/i/2021/06/11/e0hdbh.png"></p><p><img src="http://ten.ranuxy.com/i/2021/06/11/e13f44.png"></p><p><strong>6.创建一个测试类，进行测试代码编写</strong></p><p><img src="http://ten.ranuxy.com/i/2021/06/11/f0btqj.png"></p><p><img src="http://ten.ranuxy.com/i/2021/06/11/f9pzj6.png"></p><blockquote><p>第一项是User这个类的内存地址<br>第二项是调用方法输出。</p></blockquote><h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><blockquote><p>至此，第一个Spring程序结束了</p><p>后端，很奇妙吧？    ——2021.6.11</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Spring </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Servlet入门</title>
       <link href="posts/1020.html"/>
       <url>posts/1020.html</url>
