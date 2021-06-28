@@ -630,14 +630,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-24
+                    2021-06-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.7k
+                    1.8k
                 </div>
                 
 
@@ -950,6 +950,11 @@
 <p>最终</p>
 </blockquote>
 <p><img src="http://ten.ranuxy.com/i/2021/06/23/gpc7cx.png"></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><strong>1.服务器启动，应用被加载。读取到web.xml中的配置创建spring容器并且初始化容器中的对象。</strong></p>
+<p><strong>2.浏览器发送请求，被DispatherServlet捕获，该Servlet并不处理请求，而是把请求转发出去。转发的路径是根据请求URL，匹配@RequestMapping中的内容。</strong></p>
+<p><strong>3.匹配到了后，执行对应方法。该方法有一个返回值。</strong></p>
+<p><strong>4.根据方法的返回值，借助InternalResourceViewResolver找到对应的结果视图。</strong></p>
+<p><strong>5.渲染结果视图，响应浏览器</strong></p>
 
                 
             </div>
@@ -1452,7 +1457,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">10.1k</span>&nbsp;字
+                class="white-color">10.5k</span>&nbsp;字
             
             
             

@@ -630,21 +630,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-24
+                    2021-06-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -699,7 +699,14 @@
         <span class="token keyword">return</span>  success<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>在前端.jsp文件中 要想执行这个方法的格式为</p>
+</blockquote>
+<pre><code>&lt;a href="${pageContext.request.contextPath}/springmvc/test"&gt;XX&lt;/a&gt;
+</code></pre>
 <blockquote>
 <p>可以在不同的类 修饰一样名字的方法</p>
 <p>springmvc/test</p>
@@ -708,19 +715,12 @@
 <p>都可！</p>
 <p>修饰类就是找哪个旅馆</p>
 <p>修饰方法就是找哪间房间</p>
-<p>一个旅馆不能有相同的房间，但一个房间名可以有不同的旅馆</p>
+<p>一个旅馆不能有相同的房间，但不同的旅馆可以有相同的房间</p>
 </blockquote>
-<h5 id="RequestMapping-映射请求参数、请求方法或请求头"><a href="#RequestMapping-映射请求参数、请求方法或请求头" class="headerlink" title="@RequestMapping 映射请求参数、请求方法或请求头"></a>@RequestMapping 映射请求参数、请求方法或请求头</h5><pre class="line-numbers language-java"><code class="language-java"> <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"test3"</span><span class="token punctuation">,</span> params <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"uname=admin"</span><span class="token punctuation">,</span><span class="token string">"age=18"</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-            headers <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"Accept-Language=zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2"</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<blockquote>
-<p>以上代码所示</p>
-<p>value ：可以使用 test3 这个映射请求，</p>
-<p>params ：网页必须返回一个 值为 admin 的 uname对象 和 值为 18 的 age对象 </p>
-<p>haders: 指定网页的请求头格式</p>
-<p>method: 指定请求方法（</p>
-<p>RequestMethod. DELETE<br>RequestMethod . GET<br>RequestMethod. HEAD<br>RequestMethod . OPTIONS<br>Reques tMethod .PATCH<br>RequestMethod .POST<br>RequestMethod.PUT<br>RequestMethod. TRACE </p>
-<p>)</p>
+<h5 id="RequestMapping-映射请求参数、请求方法或请求头"><a href="#RequestMapping-映射请求参数、请求方法或请求头" class="headerlink" title="@RequestMapping 映射请求参数、请求方法或请求头"></a>@RequestMapping 映射请求参数、请求方法或请求头</h5><blockquote>
+<p>1.RequestMapping注解的作用是建立请求URL和处理方法之间的对应关系</p>
+<p>2.RequestMapping注解可以作用在方法和类上<br>   1.作用在类上：第一级的访问目录<br>   2.作用在方法上：第二级的访问路径<br>   3.细节：路径可以不编写/表示应用的根目录开始</p>
+<p>3.RequestMapping的属性<br>   1.path      指定请求路径的URL<br>   2.value     value属性和path属性是一样的<br>   3.method    指定该方法的请求方式<br>   4.param     指定限制请求参数的条件</p>
 </blockquote>
 <p><strong>1.params和headers支持简单的表达式:</strong></p>
 <ul>
@@ -751,8 +751,8 @@
 <blockquote>
 <p>当index.jsp 中的这段代码点击后  上面就会接收到这个请求，自动把id赋值</p>
 </blockquote>
-<pre class="line-numbers language-jsp"><code class="language-jsp"><a href="/springmvc/test4/3">给我翻译翻译，什么叫惊喜？</a>
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>&lt;a href="/springmvc/test4/3"&gt;给我翻译翻译，什么叫惊喜？&lt;/a&gt;
+</code></pre>
 <blockquote>
 <p>成功就会赋值 1 </p>
 <p>错误就会赋值 0</p>
@@ -781,29 +781,29 @@
 <p>​            1.2 原理</p>
 <p>​            <img src="http://ten.ranuxy.com/i/2021/06/24/phtkow.png"></p>
 <p><strong>2.需要发送POST请求</strong></p>
-<pre class="line-numbers language-jsp"><code class="language-jsp">
-<a href="/springmvc/test5/1">Test Rest Get</a>
+<pre><code>
+&lt;a href="/springmvc/test5/1"&gt;Test Rest Get&lt;/a&gt;
 
-<br><br>
+&lt;br&gt;&lt;br&gt;
 
-<form action="/springmvc/test5" method="post">
-    <input type="submit" value="Test Rest POST">
-</form>
+&lt;form action="/springmvc/test5" method="post"&gt;
+    &lt;input type="submit" value="Test Rest POST"&gt;
+&lt;/form&gt;
 
-<br><br>
+&lt;br&gt;&lt;br&gt;
 
-<form action="/springmvc/test5/1" method="post">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="Test Rest DELETE">
-</form>
+&lt;form action="/springmvc/test5/1" method="post"&gt;
+    &lt;input type="hidden" name="_method" value="DELETE"&gt;
+    &lt;input type="submit" value="Test Rest DELETE"&gt;
+&lt;/form&gt;
 
-<br><br>
+&lt;br&gt;&lt;br&gt;
 
-<form action="/springmvc/test5/1" method="post">
-    <input type="hidden" name="_method" value="PUT">
-    <input type="submit" value="Test Rest PUT">
-</form>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;form action="/springmvc/test5/1" method="post"&gt;
+    &lt;input type="hidden" name="_method" value="PUT"&gt;
+    &lt;input type="submit" value="Test Rest PUT"&gt;
+&lt;/form&gt;
+</code></pre>
 <p><strong>3.需要在发送POST请求时携带一个name=”_ method”的隐藏域，值为DELETE 或PUT</strong></p>
 <pre class="line-numbers language-jsp"><code class="language-jsp">    <input type="hidden" name="_method" value="(DELETE/PUT)">
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -1373,7 +1373,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">10.1k</span>&nbsp;字
+                class="white-color">10.5k</span>&nbsp;字
             
             
             
