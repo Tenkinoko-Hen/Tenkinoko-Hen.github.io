@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Spring-MVC ③ [登录注册 (小demo)], Tenkinoko">
+    <meta name="keywords" content="Spring-MVC ④ [登录注册 (登录拦截)], Tenkinoko">
     <meta name="description" content="现在的终点，未来的起点">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Spring-MVC ③ [登录注册 (小demo)] | Tenkinoko</title>
+    <title>Spring-MVC ④ [登录注册 (登录拦截)] | Tenkinoko</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -482,7 +482,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Spring-MVC ③ [登录注册 (小demo)]</h1>
+                    <h1 class="description center-align post-title">Spring-MVC ④ [登录注册 (登录拦截)]</h1>
                 </div>
             </div>
         </div>
@@ -623,28 +623,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-06-24
+                    2021-06-28
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-24
+                    2021-06-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    904
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    7 分
                 </div>
                 
 
@@ -664,50 +664,158 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="SpringMVC-入门——①-登录注册-（小demo"><a href="#SpringMVC-入门——①-登录注册-（小demo" class="headerlink" title="SpringMVC 入门——①[登录注册 （小demo)]"></a>SpringMVC 入门——①[登录注册 （小demo)]</h1><h3 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h3><hr>
-<blockquote>
-<p>建议先看完 <strong>Spring-MVC ② [常见和只需要了解的注释]</strong> 再食用</p>
-<p>因为是小demo 所以一切从简，主要演示基本功能</p>
+                <h1 id="SpringMVC-入门——④-登录注册-登录检测"><a href="#SpringMVC-入门——④-登录注册-登录检测" class="headerlink" title="SpringMVC 入门——④[登录注册(+登录检测)]"></a>SpringMVC 入门——④[登录注册(+登录检测)]</h1><blockquote>
+<p>在上个基础上加了一个登录检测功能</p>
 </blockquote>
-<h4 id="1-注册-jsp-登录-jsp-主界面-jsp-登录成功-jsp"><a href="#1-注册-jsp-登录-jsp-主界面-jsp-登录成功-jsp" class="headerlink" title="1.注册.jsp  登录.jsp 主界面.jsp  登录成功.jsp"></a>1.注册.jsp  登录.jsp 主界面.jsp  登录成功.jsp</h4><h5 id="A-主界面-jsp"><a href="#A-主界面-jsp" class="headerlink" title="A 主界面.jsp"></a>A 主界面.jsp</h5><hr>
-<p>​    <img src="http://ten.ranuxy.com/i/2021/06/24/xesu2p.png"></p>
+<h3 id="主要流程"><a href="#主要流程" class="headerlink" title="主要流程"></a>主要流程</h3><ol>
+<li><p><strong>创建 主页面.jsp 注册.jsp 登录.jsp 登录成功/失败.jsp</strong></p>
 <blockquote>
-<p>能用就行</p>
+<p>基本都会吧，就不重复了</p>
 </blockquote>
-<pre class="line-numbers language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${pageContext.request.contextPath}/user/addUser<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>用户注册<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${pageContext.request.contextPath}/user/showLogin<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>用户登录<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>注意！！！</p>
-<p>建议养成写</p>
-<pre class="line-numbers language-xml"><code class="language-xml">{pageContext.request.contextPath}
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>这个EL表达式的习惯，这个表达式的作用是<strong>：取出部署的应用程序名，这样不管如何部署，所用路径都是正确的</strong></p>
-<h5 id="B-注册界面-jsp"><a href="#B-注册界面-jsp" class="headerlink" title="B 注册界面.jsp"></a>B 注册界面.jsp</h5><hr>
-<p>​        <img src="http://ten.ranuxy.com/i/2021/06/24/xqkusu.png"></p>
-<p>​        </p>
+</li>
+<li><p><strong>配置拦截器，判断是否是登录状态</strong></p>
+</li>
+<li><p><strong>编写实现类(Controller)代码</strong></p>
+</li>
+<li><p><strong>实现如下逻辑</strong></p>
+</li>
+</ol>
+<p><img src="http://ten.ranuxy.com/i/2021/06/28/xsp9m3.png"></p>
+<h3 id="登录用户的时间线-gt"><a href="#登录用户的时间线-gt" class="headerlink" title="登录用户的时间线>"></a>登录用户的时间线&gt;</h3><hr>
+<p><img src="http://ten.ranuxy.com/i/2021/06/28/weem8m.jpg"></p>
+<p><strong>index.jsp</strong></p>
+<p>查看：链接的是成功的页面</p>
+<p>登录：链接的是登录页面</p>
+<pre><code>&lt;%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%&gt;
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+    　&lt;script src="https://code.jquery.com/jquery-3.1.1.min.js"&gt;&lt;/script&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+
+
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;宇宙的秘密，意识的源头，BUG的由来都在这了&lt;/h1&gt;
+&lt;a href="${pageContext.request.contextPath}/demo1/succse"&gt;查看&lt;/a&gt;
+&lt;a href="${pageContext.request.contextPath}/demo1/tologin"&gt;登录&lt;/a&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<p>Controller层中的业务类     定义两个页面跳转方法</p>
+<blockquote>
+<p>如果是已经登录用户的状态，则直接跳转到成功页面</p>
+<p>如果是没有登录用户的状态，则跳转到登录用户页面</p>
+</blockquote>
+<pre class="line-numbers language-java"><code class="language-java">    <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/succse"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> String <span class="token function">succes</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">"succse"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/tologin"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> String <span class="token function">tologin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token string">"login"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+     <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/toRegister"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> String <span class="token function">toRegister</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">"regUser"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="拦截器"><a href="#拦截器" class="headerlink" title="拦截器"></a>拦截器</h3><blockquote>
+<p>程序要如何判断当前是否登录了用户，就要用到SpringMVC的拦截器</p>
+<p>创建一个interceptor 代码包，在里面新建一个JAVA文件编写一个拦截器</p>
+</blockquote>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">//拦截器类似于动态代理，拦截器有三个方法：preHandle、postHandle、afterCompletion，拦截器位于控制器运行之前（preHandle）和之后（postHandle、afterCompletion）执行的。在这里preHandle是有一个boolean返回值的，返回true，执行控制器和另外两个方法，放回false，则只刷新页面，不做任何操作。</span>
+    
+
+<span class="token keyword">package</span> com<span class="token punctuation">.</span>Ten<span class="token punctuation">.</span>interceptor<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>HandlerInterceptor<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>http<span class="token punctuation">.</span>HttpServletRequest<span class="token punctuation">;</span>
+<span class="token keyword">import</span> javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>http<span class="token punctuation">.</span>HttpServletResponse<span class="token punctuation">;</span>
+<span class="token keyword">import</span> javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>http<span class="token punctuation">.</span>HttpSession<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DemoCommonInterceptor</span> <span class="token keyword">implements</span> <span class="token class-name">HandlerInterceptor</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">/**
+     * Controller层中的业务类方法 执行之前 调用这个方法
+     */</span>
+         <span class="token annotation punctuation">@Override</span>
+         <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">preHandle</span><span class="token punctuation">(</span>HttpServletRequest request<span class="token punctuation">,</span> HttpServletResponse response<span class="token punctuation">,</span>
+                     Object handler<span class="token punctuation">)</span> <span class="token keyword">throws</span> Exception <span class="token punctuation">{</span>
+     String url <span class="token operator">=</span> request<span class="token punctuation">.</span><span class="token function">getRequestURI</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token comment" spellcheck="true">// 登录，注册请求都不拦截</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>url<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">"/tologin"</span><span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">0</span><span class="token operator">||</span>url<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">"/regUser"</span><span class="token punctuation">)</span><span class="token operator">>=</span><span class="token number">0</span><span class="token operator">||</span>url<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">"/toregUser"</span><span class="token punctuation">)</span><span class="token operator">>=</span><span class="token number">0</span><span class="token operator">||</span>url<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">"/tologin"</span><span class="token punctuation">)</span><span class="token operator">>=</span><span class="token number">0</span><span class="token operator">||</span>url<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">"/login"</span><span class="token punctuation">)</span><span class="token operator">>=</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+     <span class="token comment" spellcheck="true">//从前端获取Session值，判断当前是否是登录过的</span>
+     HttpSession session <span class="token operator">=</span> request<span class="token punctuation">.</span><span class="token function">getSession</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span><span class="token punctuation">(</span>session<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">"uname"</span><span class="token punctuation">)</span><span class="token operator">!=</span>null<span class="token punctuation">)</span><span class="token punctuation">{</span>
+          <span class="token comment" spellcheck="true">//登录过用户的话就放下去</span>
+          <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+         <span class="token comment" spellcheck="true">//没有登录就去登录</span>
+           request<span class="token punctuation">.</span><span class="token function">getRequestDispatcher</span><span class="token punctuation">(</span><span class="token string">"/WEB-INF/views/login.jsp"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forward</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+         <span class="token punctuation">}</span>
+     <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="配置拦截器"><a href="#配置拦截器" class="headerlink" title="配置拦截器"></a>配置拦截器</h4><blockquote>
+<p>在Spring-mvc.xml 文件中配置拦截器</p>
+</blockquote>
+<pre class="line-numbers language-xml"><code class="language-xml"><span class="token comment" spellcheck="true">&lt;!-- 登录拦截器 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">mvc:</span>interceptors</span><span class="token punctuation">></span></span>
+    <span class="token comment" spellcheck="true">&lt;!-- 配置一个全局拦截器，拦截所有请求 --></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.Ten.interceptor.DemoCommonInterceptor<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">mvc:</span>interceptor</span><span class="token punctuation">></span></span>
+        <span class="token comment" spellcheck="true">&lt;!-- 配置拦截器作用的路径 --></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">mvc:</span>mapping</span> <span class="token attr-name">path</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/**<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+        <span class="token comment" spellcheck="true">&lt;!-- 定义在&lt;mvc: interceptor>元素中，表示匹配指定路径的请求才进行拦截 --></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.Ten.interceptor.DemoCommonInterceptor<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">mvc:</span>interceptor</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">mvc:</span>interceptors</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="没有登录用户的时间线-gt"><a href="#没有登录用户的时间线-gt" class="headerlink" title="没有登录用户的时间线>"></a>没有登录用户的时间线&gt;</h3><hr>
+<blockquote>
+<p>由于被拦截器拦截，判断没有登录用户，则跳转到注册界面</p>
+</blockquote>
+<p><strong>regUser.jsp</strong></p>
 <pre><code>&lt;%--
   Created by IntelliJ IDEA.
   User: Tenkinoko
   Date: 2021/6/24
-  Time: 19:26
+  Time: 19:22
   To change this template use File | Settings | File Templates.
 --%&gt;
-    
-&lt;%@ page contentType="text/html;charset=UTF-8" language="java" %&gt;
+&lt;%@ page language="java" import="java.util.*" pageEncoding="utf-8"%&gt;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;&lt;%
+    request.setCharacterEncoding("utf-8");
+%&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;title&gt;用户注册&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
+
+
     &lt;h3&gt;用户注册&lt;/h3&gt;
-&lt;form method="post" action="${pageContext.request.contextPath}/user/addregUser"&gt;
+
+&lt;form method="post" action="${pageContext.request.contextPath}/demo1/regUser"&gt;
     &lt;table&gt;
         &lt;tr&gt;
-            &lt;td&gt;&lt;label&gt;登录名&lt;/label&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;label&gt;注册用户名&lt;/label&gt;&lt;/td&gt;
             &lt;td&gt;&lt;input type="text" name="uname"&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td&gt;&lt;label&gt;登录密码&lt;/label&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;label&gt;注册密码&lt;/label&gt;&lt;/td&gt;
             &lt;td&gt;&lt;input type="password" name="upassword"&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
@@ -716,15 +824,36 @@
         &lt;/tr&gt;
         &lt;tr&gt;
             &lt;td&gt;&lt;label&gt;注册&lt;/label&gt;&lt;/td&gt;
-            &lt;td&gt;&lt;input type="submit" name="注册"&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;input type="submit" value="注册"&gt;&lt;/td&gt;
         &lt;/tr&gt;
     &lt;/table&gt;
 &lt;/form&gt;
+
+
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<h5 id="C-登录界面-jsp"><a href="#C-登录界面-jsp" class="headerlink" title="C 登录界面.jsp"></a>C 登录界面.jsp</h5><hr>
-<p><img src="http://ten.ranuxy.com/i/2021/06/24/xvdlsp.png"></p>
+<blockquote>
+<p>输入完数据后 提交给业务层的regUser.方法</p>
+</blockquote>
+<pre class="line-numbers language-java"><code class="language-java">
+    <span class="token comment" spellcheck="true">//用MAP存储前端给予的数值</span>
+    <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/regUser"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> String <span class="token function">regUser</span><span class="token punctuation">(</span>Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> Object<span class="token operator">></span> map<span class="token punctuation">,</span> User user<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"uname"</span><span class="token punctuation">,</span> user<span class="token punctuation">.</span><span class="token function">getUname</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"upassword"</span><span class="token punctuation">,</span> user<span class="token punctuation">.</span><span class="token function">getUpassword</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token string">"login"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>在业务层这个类的上面加入@SessionAttributes(）注释</p>
+</blockquote>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@SessionAttributes</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"uname"</span><span class="token punctuation">,</span> <span class="token string">"upassword"</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<p>这个注释会在数据域把Value中相应 key 值的数据赋值给Session 供全层调用</p>
+</blockquote>
+<h4 id="注册完后转到登录界面"><a href="#注册完后转到登录界面" class="headerlink" title="注册完后转到登录界面"></a>注册完后转到登录界面</h4><p><strong>login.jsp</strong></p>
 <pre><code>&lt;%--
   Created by IntelliJ IDEA.
   User: Tenkinoko
@@ -732,15 +861,18 @@
   Time: 19:26
   To change this template use File | Settings | File Templates.
 --%&gt;
-    
-&lt;%@ page contentType="text/html;charset=UTF-8" language="java" %&gt;
+&lt;%@ page language="java" import="java.util.*" pageEncoding="utf-8"%&gt;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;&lt;%
+    request.setCharacterEncoding("utf-8");
+%&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;title&gt;登录界面&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
 &lt;h3&gt;用户登录&lt;/h3&gt;
-&lt;form method="post" action="${pageContext.request.contextPath}/user/loginUser"&gt;
+&lt;form method="post" action="${pageContext.request.contextPath}/demo1/login"&gt;
+
     &lt;table&gt;
         &lt;tr&gt;
             &lt;td&gt;&lt;label&gt;登录账号&lt;/label&gt;&lt;/td&gt;
@@ -751,103 +883,53 @@
             &lt;td&gt;&lt;input type="password" name="upassword"&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td&gt;&lt;input id="submit" type="submit" name="登录"&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;input type="submit" value="登录"&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;a href="${pageContext.request.contextPath}/demo1/toRegister"&gt;注册&lt;/a&gt;
         &lt;/tr&gt;
     &lt;/table&gt;
 &lt;/form&gt;
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<p>​    <strong>D 登录成功</strong></p>
-<hr>
 <blockquote>
-<p>写个你喜欢的jsp文件就行</p>
+<p>登录完成后转到 业务层执行登录业务</p>
 </blockquote>
-<pre><code>&lt;%--
-  Created by IntelliJ IDEA.
-  User: Tenkinoko
-  Date: 2021/6/23
-  Time: 19:06
-  To change this template use File | Settings | File Templates.
---%&gt;
-
-&lt;%@ page contentType="text/html;charset=UTF-8" language="java" %&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;title&gt;Title&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;h1&gt;皆さん❕&lt;/h1&gt;
-    &lt;h2&gt; 大好き❕&lt;/h2&gt;
-    &lt;h3&gt;あいしてる！&lt;/h3&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<h4 id="2-Controller层的一个方法"><a href="#2-Controller层的一个方法" class="headerlink" title="2.Controller层的一个方法"></a>2.Controller层的一个方法</h4><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>Ten<span class="token punctuation">.</span>handler<span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> com<span class="token punctuation">.</span>Ten<span class="token punctuation">.</span>pojo<span class="token punctuation">.</span>User<span class="token punctuation">;</span>
-<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span>Controller<span class="token punctuation">;</span>
-<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>RequestMapping<span class="token punctuation">;</span>
-<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>RequestParam<span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>ArrayList<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>List<span class="token punctuation">;</span>
-
-<span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/user"</span><span class="token punctuation">)</span>
-<span class="token annotation punctuation">@Controller</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserHandler</span> <span class="token punctuation">{</span>
-   <span class="token keyword">private</span>  <span class="token keyword">static</span> List<span class="token operator">&lt;</span>User<span class="token operator">></span> list <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-   <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/addUser"</span><span class="token punctuation">)</span>
-    <span class="token keyword">public</span> String <span class="token function">addUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-       <span class="token keyword">return</span> <span class="token string">"regUser"</span><span class="token punctuation">;</span>
-   <span class="token punctuation">}</span>
-
-   <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/loggin"</span><span class="token punctuation">)</span>
-   <span class="token keyword">public</span> String <span class="token function">logins</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token keyword">return</span>  <span class="token string">"login"</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
-
-   <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/addregUser"</span><span class="token punctuation">)</span>
-    <span class="token keyword">public</span> String <span class="token function">regUser</span><span class="token punctuation">(</span><span class="token annotation punctuation">@RequestParam</span><span class="token punctuation">(</span><span class="token string">"uname"</span><span class="token punctuation">)</span> String name<span class="token punctuation">,</span>
-                          <span class="token annotation punctuation">@RequestParam</span><span class="token punctuation">(</span><span class="token string">"upassword"</span><span class="token punctuation">)</span> String password<span class="token punctuation">,</span>
-                          <span class="token annotation punctuation">@RequestParam</span><span class="token punctuation">(</span><span class="token string">"un"</span><span class="token punctuation">)</span> String un<span class="token punctuation">)</span><span class="token punctuation">{</span>
-       User user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>password<span class="token punctuation">,</span>un<span class="token punctuation">)</span><span class="token punctuation">;</span>
-       list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
-       <span class="token keyword">return</span> <span class="token string">"login"</span><span class="token punctuation">;</span>
-   <span class="token punctuation">}</span>
-
-   <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/loginUser"</span><span class="token punctuation">)</span>
-    <span class="token keyword">public</span> String <span class="token function">login</span><span class="token punctuation">(</span><span class="token annotation punctuation">@RequestParam</span><span class="token punctuation">(</span><span class="token string">"uname"</span><span class="token punctuation">)</span> String name<span class="token punctuation">,</span>
-                        <span class="token annotation punctuation">@RequestParam</span><span class="token punctuation">(</span><span class="token string">"upassword"</span><span class="token punctuation">)</span> String password<span class="token punctuation">)</span><span class="token punctuation">{</span>
-       <span class="token keyword">for</span><span class="token punctuation">(</span>User user<span class="token operator">:</span>list<span class="token punctuation">)</span><span class="token punctuation">{</span>
-           <span class="token keyword">if</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span><span class="token function">getUname</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span>user<span class="token punctuation">.</span><span class="token function">getUpassword</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>password<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-               <span class="token keyword">return</span> <span class="token string">"mvc"</span><span class="token punctuation">;</span>
-           <span class="token punctuation">}</span>
-       <span class="token punctuation">}</span>
-       <span class="token keyword">return</span> <span class="token string">"login"</span><span class="token punctuation">;</span>
-   <span class="token punctuation">}</span>
-
-
+<pre class="line-numbers language-java"><code class="language-java"> <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/login"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> String <span class="token function">login</span><span class="token punctuation">(</span>HttpSession session<span class="token punctuation">,</span> String uname<span class="token punctuation">,</span> String upassword<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>userService<span class="token punctuation">.</span><span class="token function">poker</span><span class="token punctuation">(</span>session<span class="token punctuation">,</span> uname<span class="token punctuation">,</span> upassword<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            session<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">"userInfo"</span><span class="token punctuation">,</span>uname<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token string">"redirect:/index.jsp"</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token string">"regUser"</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>userService是 Service层专门处理业务逻辑的类 poker 是判断登录的用户名和密码是否在”数据库”中</p>
+</blockquote>
+<pre class="line-numbers language-java"><code class="language-java"> <span class="token annotation punctuation">@Autowired</span>
+    <span class="token keyword">private</span> UserService userService<span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">UserService</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span>  <span class="token keyword">boolean</span> <span class="token function">poker</span><span class="token punctuation">(</span>HttpSession session<span class="token punctuation">,</span>String uname<span class="token punctuation">,</span> String upward<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="3-pojo实现层的一个方法"><a href="#3-pojo实现层的一个方法" class="headerlink" title="3.pojo实现层的一个方法"></a>3.pojo实现层的一个方法</h4><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>Ten<span class="token punctuation">.</span>pojo<span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> lombok<span class="token punctuation">.</span>AllArgsConstructor<span class="token punctuation">;</span>
-<span class="token keyword">import</span> lombok<span class="token punctuation">.</span>Data<span class="token punctuation">;</span>
-<span class="token keyword">import</span> lombok<span class="token punctuation">.</span>NoArgsConstructor<span class="token punctuation">;</span>
-
-<span class="token annotation punctuation">@Data</span>
-<span class="token annotation punctuation">@AllArgsConstructor</span>
-<span class="token annotation punctuation">@NoArgsConstructor</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token punctuation">{</span>
-    <span class="token keyword">private</span> String uname<span class="token punctuation">;</span>
-    <span class="token keyword">private</span> String upassword<span class="token punctuation">;</span>
-    <span class="token keyword">private</span> String un<span class="token punctuation">;</span>
-
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@Service</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserServiceImpl</span> <span class="token keyword">implements</span> <span class="token class-name">UserService</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">poker</span><span class="token punctuation">(</span>HttpSession session<span class="token punctuation">,</span>String uname<span class="token punctuation">,</span> String upward<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>uname<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>session<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">"uname"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span>upward<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>session<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">"upassword"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="4-结语"><a href="#4-结语" class="headerlink" title="4.结语"></a>4.结语</h4><blockquote>
-<p>现学现卖吧，不知道怎么转的话就多看，其实就是反复横跳。</p>
-<p>“你目前觉得不想做的事情 就是你现在需要做的。”</p>
+<span class="token comment" spellcheck="true">//我用session里面的key值 代表数据库(其实意思差不多,都是判断是否有这玩意)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>登录成功就转到主页面，登录失败就转到登录失败的页面（重新登录）</strong></p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p><strong>只是简简单单的配合拦截器写个登录拦截，其实也不太完善，没有错误提示，成功提示等等，Session其实这样用也不好。</strong></p>
+<blockquote>
+<p>由俭入奢易，由奢入俭难。</p>
+<p>一入源码深似海，从此节操是路人</p>
 </blockquote>
 
                 
@@ -875,7 +957,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://tenkinoko-hen.github.io/posts/2000.html">https://tenkinoko-hen.github.io/posts/2000.html</a>
+                    <a href="https://tenkinoko-hen.github.io/posts/2001.html">https://tenkinoko-hen.github.io/posts/2001.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1108,9 +1190,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/posts/2001.html">
                     <div class="card-image">
@@ -1127,9 +1210,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-28
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-28
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1142,6 +1225,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1160,12 +1244,12 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/1100.html">
+                <a href="/posts/2000.html">
                     <div class="card-image">
                         
-                        <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4162759595,858645477&fm=26&gp=0.jpg" class="responsive-img" alt="Spring-MVC ② [常见和只需要了解的注释]">
+                        <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4162759595,858645477&fm=26&gp=0.jpg" class="responsive-img" alt="Spring-MVC ③ [登录注册 (小demo)]">
                         
-                        <span class="card-title">Spring-MVC ② [常见和只需要了解的注释]</span>
+                        <span class="card-title">Spring-MVC ③ [登录注册 (小demo)]</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1176,7 +1260,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-24
                             </span>
                         <span class="publish-author">
                             
