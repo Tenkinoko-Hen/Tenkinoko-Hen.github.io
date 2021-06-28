@@ -805,8 +805,8 @@
 &lt;/form&gt;
 </code></pre>
 <p><strong>3.需要在发送POST请求时携带一个name=”_ method”的隐藏域，值为DELETE 或PUT</strong></p>
-<pre class="line-numbers language-jsp"><code class="language-jsp">    <input type="hidden" name="_method" value="(DELETE/PUT)">
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>    &lt;input type="hidden" name="_method" value="(DELETE/PUT)"&gt;
+</code></pre>
 <blockquote>
 <p>这样子你的POST请求就可以转为 DELETE 或者PUT请求</p>
 </blockquote>
